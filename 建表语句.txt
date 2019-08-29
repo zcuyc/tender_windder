@@ -1,0 +1,121 @@
+中标表
+
+CREATE TABLE ti_winbidder_detail_day_xinjiang (
+  `date_id` int(8) DEFAULT NULL COMMENT '接口表日期',
+  `winbidder_code` varchar(100) COLLATE utf8_bin NOT NULL COMMENT '中标编码',
+  `prjct_name` varchar(1000) COLLATE utf8_bin DEFAULT NULL COMMENT '工程名称(招标)/项目名称',
+  `prjct_code` text COLLATE utf8_bin COMMENT '工程编号（招标）/项目编号',
+  `prvnce_name` text COLLATE utf8_bin,
+  `latn_name` text COLLATE utf8_bin,
+  `county_name` text COLLATE utf8_bin,
+  `release_time` text COLLATE utf8_bin,
+  `tender_unit` text COLLATE utf8_bin,
+  `contactor` text COLLATE utf8_bin,
+  `contact_phone` text COLLATE utf8_bin,
+  `agent_unit` text COLLATE utf8_bin,
+  `agent_contactor` text COLLATE utf8_bin,
+  `agent_phone` text COLLATE utf8_bin,
+  `winbidder_unit` text COLLATE utf8_bin,
+  `winbidder_money` text COLLATE utf8_bin,
+  `begin_time` text COLLATE utf8_bin,
+  `bid_time` text COLLATE utf8_bin,
+  `bid_month` text COLLATE utf8_bin,
+  `inter_name` text COLLATE utf8_bin,
+  `website` text COLLATE utf8_bin COMMENT '网址',
+  `winbidder_detail` longtext COLLATE utf8_bin COMMENT '完整数据（招标）',
+  `public_1` text COLLATE utf8_bin COMMENT '预留信息1',
+  `public_2` text COLLATE utf8_bin COMMENT '预留信息2',
+  `public_3` text COLLATE utf8_bin COMMENT '预留信息3',
+  `public_4` text COLLATE utf8_bin COMMENT '预留信息4',
+  `public_5` text COLLATE utf8_bin COMMENT '预留信息5',
+  `public_6` text COLLATE utf8_bin COMMENT '预留信息6',
+  `public_7` text COLLATE utf8_bin COMMENT '预留信息7',
+  `public_8` text COLLATE utf8_bin COMMENT '预留信息8',
+  `public_9` text COLLATE utf8_bin COMMENT '预留信息9',
+  `public_10` text COLLATE utf8_bin COMMENT '预留信息10',
+  `status` varchar(5) COLLATE utf8_bin DEFAULT NULL COMMENT '状态',
+  `etl_time` datetime DEFAULT NULL COMMENT '入库时间',
+  `winbidder_unit_all` varchar(1000) COLLATE utf8_bin DEFAULT NULL COMMENT '联合中标单位，用@_@分隔',
+  `winbidder_money_all` varchar(1000) COLLATE utf8_bin DEFAULT NULL COMMENT '联合中标金额，用@_@分隔',
+  `money_num` varchar(1000) COLLATE utf8_bin DEFAULT NULL COMMENT '联合中标个数',
+  PRIMARY KEY (`winbidder_code`)
+) ENGINE=InnoDB AUTO_INCREMENT=4530 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+
+注意：此表在最后增加了以下三列 需要在代码里添加上  (pipeline文件，item文件，spider解析文件要同步增加)
+`winbidder_unit_all` varchar(1000) COLLATE utf8_bin DEFAULT NULL COMMENT '联合中标单位，用@_@分隔',
+`winbidder_money_all` varchar(1000) COLLATE utf8_bin DEFAULT NULL COMMENT '联合中标金额，用@_@分隔',
+`money_num` varchar(1000) COLLATE utf8_bin DEFAULT NULL COMMENT '联合中标个数'
+
+
+
+
+
+
+
+招标表
+
+CREATE TABLE ti_tender_detail_xinjiang (
+  `date_id` int(8) DEFAULT NULL COMMENT '接口表日期',
+  `tender_code` varchar(100) COLLATE utf8_bin NOT NULL COMMENT '招标编码',
+  `prjct_name` text COLLATE utf8_bin COMMENT '工程名称(招标)/项目名称',
+  `prjct_code` text COLLATE utf8_bin COMMENT '工程编号（招标）/项目编号',
+  `prjct_desc` text COLLATE utf8_bin COMMENT '项目概述',
+  `prvnce_name` text COLLATE utf8_bin COMMENT '招标省份',
+  `latn_name` text COLLATE utf8_bin COMMENT '招标地市',
+  `county_name` text COLLATE utf8_bin COMMENT '招标县',
+  `release_time` text COLLATE utf8_bin COMMENT '招标发布时间',
+  `begin_time` text COLLATE utf8_bin COMMENT '招标/投标开始时间',
+  `end_time` text COLLATE utf8_bin COMMENT '招标/投标截止时间',
+  `tender_unit` text COLLATE utf8_bin COMMENT '招标单位',
+  `contactor` text COLLATE utf8_bin COMMENT '招标人（招标）',
+  `contact_phone` text COLLATE utf8_bin COMMENT '联系方式',
+  `purchase_money` text COLLATE utf8_bin COMMENT '预算金额',
+  `agent_unit` text COLLATE utf8_bin COMMENT '招标代理/采购代理单位',
+  `agent_contactor` text COLLATE utf8_bin COMMENT '招标代理/采购代理联系人',
+  `agent_phone` text COLLATE utf8_bin COMMENT '招标代理/采购代理联系方式',
+  `bidder_req` text COLLATE utf8_bin COMMENT '投标人资格要求/符合要求',
+  `tender_note` text COLLATE utf8_bin COMMENT '领取招标文件办法',
+  `open_note` text COLLATE utf8_bin COMMENT '开标说明时间与地点',
+  `inter_name` text COLLATE utf8_bin COMMENT '来源网站名称',
+  `website` text COLLATE utf8_bin COMMENT '网址',
+  `crawler_time` datetime DEFAULT NULL COMMENT '爬取时间',
+  `tender_detail` longtext COLLATE utf8_bin COMMENT '完整数据（招标）',
+  `public_1` text COLLATE utf8_bin COMMENT '预留信息1',
+  `public_2` text COLLATE utf8_bin COMMENT '预留信息2',
+  `public_3` text COLLATE utf8_bin COMMENT '预留信息3',
+  `public_4` text COLLATE utf8_bin COMMENT '预留信息4',
+  `public_5` text COLLATE utf8_bin COMMENT '预留信息5',
+  `public_6` text COLLATE utf8_bin COMMENT '预留信息6',
+  `public_7` text COLLATE utf8_bin COMMENT '预留信息7',
+  `public_8` text COLLATE utf8_bin COMMENT '预留信息8',
+  `public_9` text COLLATE utf8_bin COMMENT '预留信息9',
+  `public_10` text COLLATE utf8_bin COMMENT '预留信息10',
+  `status` varchar(5) COLLATE utf8_bin DEFAULT NULL COMMENT '状态',
+  `etl_time` datetime DEFAULT NULL COMMENT '入库时间',
+  `purchase_money_all` varchar(500) COLLATE utf8_bin DEFAULT NULL COMMENT '分包金额，用@_@分隔',
+  `money_num` varchar(50) COLLATE utf8_bin DEFAULT NULL COMMENT '分包个数',
+  PRIMARY KEY (`tender_code`)
+) ENGINE=InnoDB AUTO_INCREMENT=764 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+注意此表在最后增加了两列 ，在代码中追加上 (pipeline文件，item文件，spider解析文件要同步增加)
+`purchase_money_all` varchar(500) COLLATE utf8_bin DEFAULT NULL COMMENT '分包金额，用@_@分隔',
+`money_num` varchar(50) COLLATE utf8_bin DEFAULT NULL COMMENT '分包个数',
+
+
+
+
+中标详情页表
+
+CREATE TABLE ti_winbidder_detail_detail_day_xinjiang (
+  `date_id` int(8) DEFAULT NULL,
+  `winbidder_code` longtext,
+  `winbidder_detail` longtext
+) ENGINE=InnoDB DEFAULT CHARSET='utf8'
+
+招标详情表
+CREATE TABLE ti_tender_detail_detail_day_xinjiang_yhl (
+  `date_id` int(8) DEFAULT NULL,
+  `tender_code` longtext,
+  `tender_detail` longtext
+) ENGINE=InnoDB DEFAULT CHARSET='utf8'
